@@ -64,7 +64,7 @@ var ProductRow = React.createClass({
 				</td>
 				<td data-th="Subtotal" className="text-center">${this.calculateSubtotal()}</td>
 				<td className="actions" data-th="">
-					<button className="btn btn-danger btn-sm" onClick={this.props.handleProductRemove.bind(null, this.props.arrayIndex)}><i className="fa fa-trash-o"></i></button>								
+					<DeleteButton handleProductRemove={this.props.handleProductRemove} arrayIndex={this.props.arrayIndex} />							
 				</td>
 			</tr>
 		);
@@ -87,6 +87,14 @@ var Button = React.createClass({
 				<a href={this.props.url} className={typeClassName}><i className={directionClassName}></i> {this.props.text}</a>
 			);
 		}
+	}
+});
+
+var DeleteButton = React.createClass({
+	render: function() {
+		return (
+			<button className="btn btn-danger btn-sm" onClick={this.props.handleProductRemove.bind(null, this.props.arrayIndex)}><i className="fa fa-trash-o"></i></button>
+		);
 	}
 });
 
