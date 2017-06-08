@@ -39,6 +39,16 @@ var HeaderRow = React.createClass({
 });
 
 var ProductRow = React.createClass({
+	getInitialState: function () {
+		return {
+			quantity: this.props.productQuantity
+		};
+	},
+	_onChange: function (e) {
+		this.setState({
+			quantity: e.target.value
+		});
+	},
 	calculateSubtotal: function() {
 		return formatNumber(this.props.productPrice * this.props.productQuantity);
 	},
@@ -60,10 +70,12 @@ var ProductRow = React.createClass({
 						className="form-control text-center"
 						defaultValue={this.props.productQuantity}
 						min={this.props.min} 
-						onChange={this.props.handleInputChange.bind(null, this.props.arrayIndex)} />
+						onChange={this._onChange} 
+						/>
 				</td>
 				<td data-th="Subtotal" className="text-center">${this.calculateSubtotal()}</td>
 				<td className="actions" data-th="">
+					<RefreshButton handleInputChange={this.props.handleInputChange} arrayIndex={this.props.arrayIndex} quantity={this.state.quantity} />
 					<DeleteButton handleProductRemove={this.props.handleProductRemove} arrayIndex={this.props.arrayIndex} />							
 				</td>
 			</tr>
@@ -91,9 +103,23 @@ var Button = React.createClass({
 });
 
 var DeleteButton = React.createClass({
+	_onClick: function () {
+		this.props.handleProductRemove(this.props.arrayIndex);
+	},
 	render: function() {
 		return (
-			<button className="btn btn-danger btn-sm" onClick={this.props.handleProductRemove.bind(null, this.props.arrayIndex)}><i className="fa fa-trash-o"></i></button>
+			<button className="btn btn-danger btn-sm" onClick={this._onClick}><i className="fa fa-trash-o"></i></button>
+		);
+	}
+});
+
+var RefreshButton = React.createClass({
+	_onClick: function () {
+		this.props.handleInputChange(this.props.arrayIndex, this.props.quantity);
+	},
+	render: function() {
+		return (
+			<button className="btn btn-info btn-sm" onClick={this._onClick}><i className="fa fa-refresh"></i></button>
 		);
 	}
 });
@@ -160,8 +186,10 @@ var ShoppingCart = React.createClass({
 	getInitialState: function () {
 		return { products };
 	},
-	handleInputChange: function (index, e) {
-		products[index]['quantity'] = Number(e.target.value);
+	handleInputChange: function (index, quantity) {
+		// TODO: Return reference and resolve using mapping.
+		
+		products[index]['quantity'] = Number(quantity);
 		this.setState({ products })
 	},
 	handleProductRemove: function (index) {
