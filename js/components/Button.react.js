@@ -1,6 +1,7 @@
 var React = require('react');
 
 var Button = React.createClass({
+
     render: function() {
         var typeClassName = "btn btn-" + this.props.type, 
         directionClassName = "fa fa-angle-" + this.props.direction;
@@ -17,6 +18,7 @@ var Button = React.createClass({
             );
         }
     }
+    
 });
 
 module.exports = Button;

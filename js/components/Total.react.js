@@ -2,6 +2,7 @@ var React = require('react');
 var ShoppingCartHelper = require('../helpers/ShoppingCartHelper');
 
 var Total = React.createClass({
+
     calculateTotal: function () {
         var i, currentProduct,
             total = 0, 
@@ -16,11 +17,13 @@ var Total = React.createClass({
 
         return ShoppingCartHelper.formatNumber(total);
     },
+
     render: function() {
         return (
             <strong>Total ${this.calculateTotal()}</strong>
         );
     }
+    
 });
 
 module.exports = Total;

@@ -1,6 +1,7 @@
 var React = require('react');
 
 var HeaderRow = React.createClass({
+
     render: function() {
         var columnsHtml = [];
 
@@ -20,6 +21,7 @@ var HeaderRow = React.createClass({
             </tr>
         );
     }
+    
 });
 
 module.exports = HeaderRow;

@@ -3,6 +3,7 @@ var ProductRow = require('./ProductRow.react');
 var ShoppingCartHelper = require('../helpers/ShoppingCartHelper');
 
 var AllProductRows = React.createClass({
+
     buildRows: function () {
         var i, currentProduct,
             productRows = [],
@@ -14,7 +15,6 @@ var AllProductRows = React.createClass({
             productRows.push(
                 <ProductRow 
                     key={ShoppingCartHelper.findValueByKey(currentProduct, columns, 'id')}
-                    handleInputChange={this.props.handleInputChange} 
                     handleProductRemove={this.props.handleProductRemove} 
                     min={0}
                     arrayIndex={i}
@@ -29,6 +29,7 @@ var AllProductRows = React.createClass({
 
         return productRows;
     },
+
     render: function() {
         var rows = this.buildRows();
 
@@ -36,6 +37,7 @@ var AllProductRows = React.createClass({
             <tbody>{rows}</tbody>
         );
     }
+    
 });
 
 module.exports = AllProductRows;

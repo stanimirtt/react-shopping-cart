@@ -1,4 +1,5 @@
 var ShoppingCartHelper = {
+
 	findValueByKey: function (product, columns, key) {
 	    var i, currentKey;
 
@@ -9,9 +10,11 @@ var ShoppingCartHelper = {
 	        }
 	    }
 	},
+
 	formatNumber: function (value) {
 	    return Number(value).toFixed(2);
 	}
+	
 }
 
 module.exports = ShoppingCartHelper;
