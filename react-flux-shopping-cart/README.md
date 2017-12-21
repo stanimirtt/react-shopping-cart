@@ -1,6 +1,13 @@
 # react-flux-shopping-cart
 A simple example of shopping cart component in a website implemented with Flux. Including ESLint and Prettier integration.
 
+```
+> git clone https://github.com/stanimirtt/react-shopping-cart.git
+> cd react-shopping-cart/react-redux-shopping-cart
+> npm install
+> npm start
+```
+
 # Concept
 1. Objects
     1. Cart
