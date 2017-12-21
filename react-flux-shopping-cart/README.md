@@ -3,7 +3,7 @@ A simple example of shopping cart component in a website implemented with Flux. 
 
 ```
 > git clone https://github.com/stanimirtt/react-shopping-cart.git
-> cd react-shopping-cart/react-redux-shopping-cart
+> cd react-shopping-cart/react-flux-shopping-cart
 > npm install
 > npm start
 ```
