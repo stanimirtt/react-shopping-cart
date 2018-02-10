@@ -7,7 +7,7 @@ export default (state = initialState.items, action) => {
       return action.items;
 
     case types.UPDATE_QUANTITY_SUCCESS:
-      return [...state.slice(0, action.item.id), action.item, ...state.slice(action.item.id + 1)];
+      return [...state.map(item => (item.id === action.item.id ? action.item : item))];
 
     case types.REMOVE_ITEM_SUCCESS:
       return [...state.filter(item => item.id !== action.id)];
