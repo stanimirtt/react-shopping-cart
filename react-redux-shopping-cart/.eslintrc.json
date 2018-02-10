@@ -43,7 +43,7 @@
     /* React */
     "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
     "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
-
+    "react/wrap-multilines": "off",
     "no-use-before-define": [
       "error",
       {
